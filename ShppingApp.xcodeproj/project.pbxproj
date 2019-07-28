@@ -13,9 +13,11 @@
 		7CC471D422EC8F5F00E28882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC471D222EC8F5F00E28882 /* Main.storyboard */; };
 		7CC471D622EC8F6000E28882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC471D522EC8F6000E28882 /* Assets.xcassets */; };
 		7CC471D922EC8F6000E28882 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC471D722EC8F6000E28882 /* LaunchScreen.storyboard */; };
+		C42725DC2E5995A80B60FF1C /* Pods_ShppingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95759E39DFA4B8370AB673F4 /* Pods_ShppingApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D0DD5775E35095BBEF4D0AA /* Pods-ShppingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShppingApp.release.xcconfig"; path = "Target Support Files/Pods-ShppingApp/Pods-ShppingApp.release.xcconfig"; sourceTree = "<group>"; };
 		7CC471C922EC8F5F00E28882 /* ShppingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShppingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC471CC22EC8F5F00E28882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CC471CE22EC8F5F00E28882 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		7CC471D522EC8F6000E28882 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CC471D822EC8F6000E28882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CC471DA22EC8F6000E28882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95759E39DFA4B8370AB673F4 /* Pods_ShppingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShppingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4604785A3B6FA77AF5BB7B9 /* Pods-ShppingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShppingApp.debug.xcconfig"; path = "Target Support Files/Pods-ShppingApp/Pods-ShppingApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C42725DC2E5995A80B60FF1C /* Pods_ShppingApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				7CC471CB22EC8F5F00E28882 /* ShppingApp */,
 				7CC471CA22EC8F5F00E28882 /* Products */,
+				DC37338F0D72D28E79454842 /* Pods */,
+				A997097A421F4544063F12B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = ShppingApp;
 			sourceTree = "<group>";
 		};
+		A997097A421F4544063F12B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95759E39DFA4B8370AB673F4 /* Pods_ShppingApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC37338F0D72D28E79454842 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4604785A3B6FA77AF5BB7B9 /* Pods-ShppingApp.debug.xcconfig */,
+				4D0DD5775E35095BBEF4D0AA /* Pods-ShppingApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CC471DD22EC8F6000E28882 /* Build configuration list for PBXNativeTarget "ShppingApp" */;
 			buildPhases = (
+				595D61322F88A7924FAC2A8B /* [CP] Check Pods Manifest.lock */,
 				7CC471C522EC8F5F00E28882 /* Sources */,
 				7CC471C622EC8F5F00E28882 /* Frameworks */,
 				7CC471C722EC8F5F00E28882 /* Resources */,
+				F4C632FA674FC44A2D6D1BEB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		595D61322F88A7924FAC2A8B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShppingApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4C632FA674FC44A2D6D1BEB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShppingApp/Pods-ShppingApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShppingApp/Pods-ShppingApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShppingApp/Pods-ShppingApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7CC471C522EC8F5F00E28882 /* Sources */ = {
@@ -284,6 +353,7 @@
 		};
 		7CC471DE22EC8F6000E28882 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4604785A3B6FA77AF5BB7B9 /* Pods-ShppingApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -301,6 +371,7 @@
 		};
 		7CC471DF22EC8F6000E28882 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D0DD5775E35095BBEF4D0AA /* Pods-ShppingApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

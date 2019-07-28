@@ -7,20 +7,23 @@
 //
 
 import UIKit
+import moltin
 
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
+    
     var objects = [Any]()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        navigationItem.leftBarButtonItem = editButtonItem
+        // Do any additional setup after loading the view
+        
+        getproducts()
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        navigationItem.rightBarButtonItem = addButton
+        let checkoutButton = UIBarButtonItem(title: "Checkout !", style: .plain, target: self, action: "checkout")
+
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -38,13 +41,19 @@ class MasterViewController: UITableViewController {
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
+    
+    // Mark: - checkout methods
+    
+    func checkout() {
+        
+    }
 
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = objects[indexPath.row] as! Product
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
@@ -64,10 +73,11 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let object = objects[indexPath.row] as! Product
+        cell.textLabel!.text = object.name
         return cell
     }
 
@@ -82,6 +92,32 @@ class MasterViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
+    
+    //retrive store products
+    func getproducts() {
+        
+        let moltin = Moltin(withClientID: "DKHORJjHyDVDW7gcqrzG4akofcauladw1jCTTTIxMW")
+        
+        moltin.product.all { result in
+            switch result {
+            case .success(let response):
+                
+                let products = response.data
+                
+                for product in products! {
+                    
+                    self.objects.append(product)
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 
